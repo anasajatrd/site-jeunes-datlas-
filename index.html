@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Association Jeunes d’Atlas</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Association Jeunes d’Atlas</h1>
+    <p class="hero-subtitle">Solidarité • Bénévolat • Culture • Sport</p>
+  </div>
+</header>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-left">
+      <img src="images/logo.png" class="nav-logo">
+      <span class="nav-title">Jeunes d’Atlas</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#activites">Activités</a></li>
+      <li><a href="#map">Zones d’intervention</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about-section reveal">
+  <div class="about-container">
+
+    <div class="about-text-box">
+      <h2>À propos de nous</h2>
+      <p>
+       L’Association Jeunes d’Atlas est une organisation non gouvernementale, indépendante et à but non lucratif, fondée le 14 avril 2004 à Taroudant et active dans plusieurs régions du Royaume,
+par un groupe de jeunes pleins d’énergie, de vitalité et d’amour du bénévolat. Ces jeunes, conscients qu’il n’y a pas de développement sans solidarité, effort et sacrifice, avaient la détermination d’instaurer l’esprit de philanthropie et du volontariat pour les jeunes de la perle du sud, Taroudant. L’association veille à offrir des programmes appropriés à la jeunesse pour contribuer à résoudre la plupart des phénomènes, situations éducatives, sociales et morales.
+      </p>
+    </div>
+<div class="mission-box">
+      <h3>🎯 Notre mission</h3>
+      <p>
+        Offrir aux jeunes un espace d’engagement et de partage,
+        favoriser l’entraide sociale et créer des opportunités
+        pour une jeunesse épanouie et solidaire.
+      </p>
+
+      <!-- BUTTON -->
+      <label for="engage-popup" class="join-btn">
+        🤝 S’engager avec nous
+      </label>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="stats-section">
+  <h2 class="stats-title">أرقام تفتخر بها الجمعية</h2>
+  <div class="stats-container">
+
+    <div class="stat-box">
+  <i class="fas fa-hands-helping stat-icon"></i>
+  <span class="stat-number" data-target="3500">0</span>
+  <p>المستفيدون</p>
+</div>
+
+
+    <div class="stat-box">
+      <span class="stat-number" data-target="85">0</span>
+      <p>المشاريع المنجزة</p>
+    </div>
+
+    <div class="stat-box">
+      <span class="stat-number" data-target="120">0</span>
+      <p>المتطوعون</p>
+    </div>
+
+    <div class="stat-box">
+      <span class="stat-number" data-target="18">0</span>
+      <p>المناطق المستهدفة</p>
+    </div>
+
+  </div>
+</section>
+<!-- ===== ZONES D’INTERVENTION ===== -->
+<section id="map" class="section gray">
+
+  <h2 class="fade-title">Zones d’intervention</h2>
+  <p class="fade-subtitle">
+    Carte interactive des douars ayant bénéficié des actions de l’Association Jeunes d’Atlas
+  </p>
+
+  <div id="map-container">
+    <div id="mapid"></div>
+  </div>
+
+</section>
+
+
+<!-- ================= POPUP ENGAGEMENT ================= -->
+
+<!-- INPUT (IMPORTANT) -->
+<input type="checkbox" id="engage-popup" class="popup-toggle">
+
+<div class="popup">
+  <div class="popup-content popup-anim">
+
+    <label for="engage-popup" class="close">✕</label>
+
+    <h3>🤝 S’engager avec nous</h3>
+    <p>Merci de remplir ce formulaire pour rejoindre l’Association Jeunes d’Atlas.</p>
+
+    <div class="form-container">
+
+      <!-- LOADER -->
+      <div class="form-loader" id="formLoader">
+        <img src="images/logo.png" alt="Jeunes d'Atlas">
+        <p>Chargement du formulaire...</p>
+      </div>
+
+      <!-- FORM -->
+      <iframe
+        id="jotformFrame"
+        src="https://form.jotform.com/260064552456557"
+        scrolling="yes">
+      </iframe>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ===== ACTIVITIES ===== -->
+<section id="activites" class="section gray">
+  <h2 class="fade-title">Nos activités</h2>
+
+  <div class="cards">
+
+  <div class="card green" data-target="benevolat">
+    <i class="fa-solid fa-handshake-angle"></i>
+    <span>Bénévolat</span>
+  </div>
+
+  <div class="card red" data-target="aide-sociale">
+    <i class="fa-solid fa-heart-circle-bolt"></i>
+    <span>Aide sociale</span>
+  </div>
+
+  <div class="card blue" data-target="sport">
+    <i class="fa-solid fa-futbol"></i>
+    <span>Activités sportives</span>
+  </div>
+
+  <div class="card darkgreen" data-target="culture">
+    <i class="fa-solid fa-palette"></i>
+    <span>Culture & Art</span>
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ===== GALLERY / ACTIONS ===== -->
+
+<!-- ===== AIDE SOCIALE ===== -->
+<section id="aide-sociale" class="section actions-section">
+
+  <h2 class="fade-title">Aide sociale</h2>
+  <p class="fade-subtitle">Cliquez sur une action pour découvrir les détails</p>
+
+  <div class="actions-grid">
+
+    <label for="action1" class="action-card">
+      <div class="action-img">
+        <img src="images/aide1.jpg" alt="Aide aux familles">
+      </div>
+      <h3>Soutien humanitaire - Commune d’Adaoumoumen</h3>
+    </label>
+
+    <label for="action2" class="action-card">
+      <div class="action-img">
+        <img src="images/aide11.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>Soutien humanitaire - Agadir Melloul</h3>
+    </label>
+<label for="action3" class="action-card">
+      <div class="action-img">
+        <img src="images/aide.111.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>Soutien humanitaire - Sidi Abdollah Oussaid</h3>
+    </label>
+<label for="action4" class="action-card">
+      <div class="action-img">
+        <img src="images/rama1.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>Action Solidaire – Ramadan 2025</h3>
+    </label>
+    <label for="action5" class="action-card">
+      <div class="action-img">
+        <img src="images/sos1.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>SOS Hiver 2025</h3>
+    </label>
+    <label for="action6" class="action-card">
+      <div class="action-img">
+        <img src="images/mo3.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>Iftar Saïm Ramadan</h3>
+    </label>
+    <label for="action7" class="action-card">
+      <div class="action-img">
+        <img src="images/d1.jpg" alt="Victimes du séisme">
+      </div>
+      <h3>Caravane humanitaire – Campagne Hiver à la commune d’Assads</h3>
+    </label>
+  </div>
+</section>
+
+<!-- ===== ACTIVITÉS SPORTIVES ===== -->
+<section id="sport" class="section actions-section">
+
+  <h2 class="fade-title">Activités sportives</h2>
+  <p class="fade-subtitle">Cliquez sur une activité pour découvrir les détails</p>
+
+  <div class="actions-grid">
+
+    <label for="sport1" class="action-card">
+      <div class="action-img">
+        <img src="images/sp1.jpg" alt="Tournoi de football">
+      </div>
+      <h3>Titan Challenge – 1ʳᵉ édition</h3>
+    </label>
+
+    <label for="sport2" class="action-card">
+      <div class="action-img">
+        <img src="images/ma1.jfif" alt="Match amical">
+      </div>
+      <h3>Cérémonie de clôture – Tournoi Abwab Al Madina</h3>
+    </label>
+
+  </div>
+</section>
+<section id="culture" class="section actions-section">
+
+  <h2 class="fade-title">Culture & Art</h2>
+  <p class="fade-subtitle">Cliquez sur une activité culturelle pour découvrir les détails</p>
+
+  <div class="actions-grid">
+
+    <!-- ACTION 1 -->
+    <label for="culture1" class="action-card">
+      <div class="action-img">
+        <img src="images/a1.jpg" alt="Activité culturelle">
+      </div>
+      <h3>Célébration du Nouvel An Amazigh Yennayer 2976</h3>
+    </label>
+
+    <!-- ACTION 2 -->
+    <label for="culture2" class="action-card">
+      <div class="action-img">
+        <img src="images/v1.jpg" alt="Activité artistique">
+      </div>
+      <h3>V TALK – Le bénévolat au service de l’employabilité</h3>
+    </label>
+
+    <!-- ACTION 3 -->
+    <label for="culture3" class="action-card">
+      <div class="action-img">
+        <img src="images/m1.jpg" alt="Événement artistique">
+      </div>
+      <h3>Célébration du 50ᵉ anniversaire de la Marche Verte</h3>
+    </label>
+
+  </div>
+</section>
+
+<!-- ================= POPUPS ================= -->
+
+<!-- POPUP ACTION 1 -->
+<input type="checkbox" id="action1" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action1" class="close">✕</label>
+    <h3>La distribution d’aides humanitaires</h3>
+    <p>Dans le cadre de ses actions sociales et humanitaires, et dans le cadre de la Campagne Hiver (Campagne de la Chaleur) organisée cette semaine, l’Association Jeunes d’Atlas a procédé à la distribution d’aides humanitaires au profit des habitants de plusieurs douars, afin d’atténuer les effets du froid intense.
+Cette action a consisté en la distribution de couvertures et d’oreillers au profit des habitants des douars suivants :
+Commune de Tidsi : douar Teloum et douar Taourirt
+Commune d’Assads : douars Akrizm, Tayat, Tamkout, Tazart
+Commune d’Adaoumoumen : douar Tahndourt
+Cette initiative s’inscrit dans l’engagement de l’association en faveur des valeurs de solidarité, de cohésion sociale et de proximité avec les populations locales, en particulier celles vivant dans des zones montagneuses et vulnérables.
+Un grand merci à toutes les personnes ayant contribué, de près ou de loin, à la réussite de cette action humanitaire.
+Ensemble, pour un hiver plus chaleureux.</p>
+    <div class="popup-gallery">
+      <img src="images/benevolat-04.jpg">
+      <img src="images/benevolat-02.jpg">
+      <img src="images/benevolat-03.jpg">
+    </div>
+  </div>
+</div>
+
+
+<!-- POPUP ACTION 2 -->
+<input type="checkbox" id="action2" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action2" class="close">✕</label>
+    <h3>Aide pour les victimes du séisme</h3>
+    <p>Dans le cadre de son travail humanitaire et solidaire continu, l'Association des jeunes d'Atlas, en partenariat avec la Banque alimentaire, a organisé une nouvelle campagne de distribution d'aide aux familles nécessiteuses des communautés de Zakmouzen et d'Agadir Melloul, une initiative qui témoigne d'un engagement constant à soutenir les groupes vulnérables en milieu rural, le 21 septembre 2025.</p>
+    <div class="popup-gallery">
+      <img src="images/aide11.jpg">
+      <img src="images/aide22.jpg">
+      <img src="images/aide44.jpg">
+    </div>
+  </div>
+</div>
+<!-- POPUP ACTION 3 -->
+<input type="checkbox" id="action3" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action3" class="close">✕</label>
+    <h3>La distribution d’aides humanitaire</h3>
+    <p>L'association Atlas Youth, en partenariat avec la Banque alimentaire, a organisé une campagne humanitaire dans la communauté de Sidi Abdallah et Said, au cours de laquelle 445 kits alimentaires et d'hygiène ont été distribués aux familles nécessiteuses le 17 septembre 2025.</p>
+    <div class="popup-gallery">
+      <img src="images/aide.111.jpg">
+      <img src="images/aide.222.jpg">
+      <img src="images/aide.444.jpg">
+    </div>
+  </div>
+</div>
+
+<!-- POPUP ACTION 4 -->
+<input type="checkbox" id="action4" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action4" class="close">✕</label>
+    <h3>Distribution de bons d’achat aux familles bénéficiaires à Taroudant</h3>
+    <p>À l’occasion du mois sacré de Ramadan, et dans le cadre du renforcement des valeurs de solidarité et de partage, l’Association Jeunes d’Atlas, en partenariat avec @islamicreliefnederland, a organisé une opération de distribution de bons d’achat au profit de plusieurs familles nécessiteuses dans la ville de Taroudant.
+
+Cette initiative, qui a bénéficié à des dizaines de familles, vise à alléger les charges durant ce mois béni et à offrir aux bénéficiaires la liberté de choisir les produits alimentaires dont ils ont besoin auprès de commerces locaux agréés, dans le respect de leur dignité.
+
+Un grand merci à l’ensemble de nos partenaires et à nos bénévoles pour leur contribution précieuse à la réussite de cette action solidaire.</p>
+    <div class="popup-gallery">
+      <img src="images/ram2.jpg">
+      <img src="images/rama3.jpg">
+      <img src="images/rama4.jpg">
+    </div>
+  </div>
+</div>
+
+<!-- POPUP ACTION 5 -->
+<input type="checkbox" id="action5" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action5" class="close">✕</label>
+    <h3>Campagne SOS Hiver 2025 au profit des populations rurales</h3>
+    <p>Sous le slogan #SOS_HIVER, et en réponse à la vague de froid, l’Association Jeunes d’Atlas a organisé la Campagne de Chaleur 2025, en partenariat avec Karama Solidarity – Islamic Relief Belgium.
+
+Cette initiative a permis la distribution de 165 paniers alimentaires composés de produits de première nécessité, ainsi que de 165 couvertures, au profit des habitants de plusieurs douars, à savoir : Douar Aghil N’kia, Douar Amghir et Douar Touririn.
+
+Cette campagne a été accueillie très favorablement par les bénéficiaires et s’inscrit dans l’engagement continu de l’association en faveur de la solidarité et du soutien aux populations vulnérables durant la saison hivernale</p>
+    <div class="popup-gallery">
+      <img src="images/sos2.jpg">
+      <img src="images/sos3.jpg">
+      <img src="images/sos4.jpg">
+    </div>
+  </div>
+</div>
+<!-- POPUP ACTION 6 -->
+<input type="checkbox" id="action6" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action6" class="close">✕</label>
+    <h3>Initiative Iftar Saïm au profit des personnes dans le besoin</h3>
+    <p>l’occasion du mois sacré de Ramadan, l’Association Jeunes d’Atlas a lancé l’initiative « Iftar Saïm », visant la préparation et la distribution quotidienne de repas d’iftar au profit des personnes démunies et des passants, dans différents quartiers de la ville.
+
+La préparation des repas s’est déroulée au sein du Complexe socio-éducatif, grâce à l’engagement et au dévouement des bénévoles de l’association, qui ont œuvré dans un esprit de solidarité et de générosité afin d’assurer un iftar quotidien à plus de 50 bénéficiaires par jour.
+
+Cette initiative humanitaire a été réalisée en partenariat avec Souss Initiatives, contribuant ainsi au renforcement des valeurs de solidarité sociale et à la diffusion des valeurs de partage et de bienfaisance durant ce mois béni.
+
+Un grand merci à l’ensemble des bénévoles et à tous ceux qui ont soutenu et contribué à la réussite de cette action.</p>
+    <div class="popup-gallery">
+      <img src="images/mo1.jpg">
+      <img src="images/mo2.jpg">
+      <img src="images/mo5.jpg">
+    </div>
+  </div>
+</div>
+<!-- POPUP ACTION 7 -->
+<input type="checkbox" id="action7" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="action7" class="close">✕</label>
+    <h3>Distribution des aides humanitaires – Campagne Hiver 2025</h3>
+    <p>Dans le cadre de la Campagne Hiver, l’Association Jeunes d’Atlas, en partenariat avec l’Association Attawasoul pour le Développement Social et Islamic Relief Nederland, a organisé une caravane humanitaire solidaire au profit des habitants des douars Aït Ouzough, Aït Ouzlit, Ahrbilane, Okhlissene, Anikio et Akzim, relevant de la commune d’Assads.
+
+Cette initiative humanitaire a permis la distribution de 130 aides comprenant des paniers alimentaires, des poêles de chauffage, des couvertures, des vêtements pour enfants, ainsi que du bois de chauffage, dans le but d’atténuer les effets du froid intense durant la saison hivernale.
+
+Cette action solidaire a été chaleureusement accueillie par les bénéficiaires et s’inscrit dans l’engagement continu de l’association en faveur des valeurs de solidarité, d’entraide et de soutien aux populations vulnérables.
+
+📅 Cette action s’est déroulée les vendredi et samedi 03 et 04 janvier 2025.</p>
+    <div class="popup-gallery">
+      <img src="images/ram2.jpg">
+      <img src="images/rama3.jpg">
+      <img src="images/rama4.jpg">
+    </div>
+  </div>
+</div>
+<!-- POPUP SPORT 1 -->
+<input type="checkbox" id="sport1" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="sport1" class="close">✕</label>
+    <h3>Engagement des bénévoles – Titan Challenge Inzegane</h3>
+    <p>Titan Challenge – 1ʳᵉ édition à Inzegane a été une expérience unique, riche en défis et en dépassement de soi.
+
+L’Association Jeunes d’Atlas a participé à cet événement sportif d’envergure à travers la mobilisation de ses bénévoles, qui ont contribué activement à l’organisation et au bon déroulement de la manifestation.
+
+Chaque moment de cette aventure a été une véritable leçon de travail d’équipe, de solidarité et d’esprit d’engagement, incarnant pleinement les valeurs du sport et de la coopération.</p>
+    <div class="popup-gallery">
+      <img src="images/sp2.jpg">
+      <img src="images/sp3.jpg">
+      <img src="images/sp4.jpg">
+    </div>
+  </div>
+</div>
+
+<!-- ✅ POPUP SPORT 2 (كان ناقص) -->
+<input type="checkbox" id="sport2" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="sport2" class="close">✕</label>
+    <h3>Clôture du Tournoi Ramadan</h3>
+    <p>
+      L’Association Jeunes d’Atlas a organisé, le dimanche 27 avril 2025, la cérémonie de clôture du tournoi « Abwab Al Madina Ramadan », sur le terrain du complexe socio-éducatif relevant de la Fondation Mohammed V pour la Solidarité.
+
+La cérémonie s’est déroulée dans une ambiance dynamique et enthousiaste, en présence de M. Abdelali El Hous, deuxième vice-président du Conseil communal de Taroudant, ainsi que de M. Abdelmounaim El Manani, responsable du pôle sportif et social, aux côtés des bénévoles et des participants au tournoi,conférant à l’événement un caractère festif marqué par l’esprit de coopération et de participation.
+    </p>
+    <div class="popup-gallery">
+      <img src="images/m2.jfif">
+      <img src="images/m3.jfif">
+      <img src="images/m4.jfif">
+    </div>
+  </div>
+</div>
+
+
+<input type="checkbox" id="culture1" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="culture1" class="close">✕</label>
+    <h3>Soirée culturelle amazighe organisée par l’Association Jeunes d’Atlas</h3>
+
+    <p>
+      À l’occasion du Nouvel An amazigh Yennayer 2976, l’Association Jeunes d’Atlas a organisé une soirée culturelle et festive au Complexe socio-éducatif.
+Cette rencontre a été marquée par l’animation d’un atelier d’initiation à l’écriture des caractères Tifinagh, ainsi que par la présentation du plat traditionnel Tagoulla, et d’autres mets amazighs authentiques, dans une ambiance mettant en valeur la richesse du patrimoine culturel amazigh.
+La soirée s’est clôturée par un moment collectif fort, avec la retransmission de la demi-finale de l’équipe nationale marocaine, dans une atmosphère empreinte d’enthousiasme et de fierté nationale.
+    </p>
+
+    <div class="popup-gallery">
+      <img src="images/a2.jpg">
+      <img src="images/a4.jpg">
+      <img src="images/a3.jpg">
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="culture2" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="culture2" class="close">✕</label>
+    <h3>Moment d’échange et de partage autour du bénévolat et de l’employabilité des jeunes</h3>
+
+    <p>
+      Retour sur V TALK | Le bénévolat au service de l’employabilité
+Nous avons eu le plaisir d’organiser V TALK, un moment d’échange riche et inspirant autour du rôle du bénévolat dans le développement des compétences et l’amélioration de l’employabilité des jeunes.
+💬 Des échanges constructifs
+🤝 Une forte interaction avec les participants
+✨ Des idées et des parcours inspirants
+Nous remercions chaleureusement l’ensemble des intervenants, partenaires et participants pour leur engagement et leur contribution à la réussite de cet événement.
+📸 Retour en images sur quelques temps forts de la rencontre.
+    </p>
+
+    <div class="popup-gallery">
+      <img src="images/v2.jpg">
+      <img src="images/v3.jpg">
+      <img src="images/v4.jpg">
+    </div>
+  </div>
+</div>
+
+<input type="checkbox" id="culture3" class="popup-toggle">
+<div class="popup">
+  <div class="popup-content popup-anim">
+    <label for="culture3" class="close">✕</label>
+    <h3>Ateliers créatifs et célébration patriotique à l’occasion de la Marche Verte</h3>
+
+    <p>
+     L’Association Jeunes d’Atlas a célébré, le jeudi, le 50ᵉ anniversaire de la glorieuse Marche Verte au sein du Complexe socio-éducatif, dans une atmosphère nationale empreinte de fierté et d’attachement aux valeurs de la patrie.
+
+Cette commémoration a été marquée par l’organisation de plusieurs activités mettant en lumière l’esprit de la Marche Verte et sa profonde portée nationale.
+
+La célébration a également été ponctuée par un atelier de travaux manuels destiné aux enfants, à travers lequel ils ont exprimé leur amour pour la patrie au moyen de dessins et de créations artistiques symboliques incarnant les valeurs de sacrifice et d’unité.
+
+Cette initiative a constitué un moment éducatif et culturel remarquable, alliant apprentissage et célébration, et reflétant l’engagement de l’association à renforcer les valeurs de citoyenneté auprès des enfants et des jeunes générations.
+    </p>
+
+    <div class="popup-gallery">
+      <img src="images/m2.jpg">
+      <img src="images/m3.jpg">
+      <img src="images/m4.jpg">
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section gray">
+  <h2>Contact</h2>
+  <p>📍 Maroc</p>
+  <p>📧 jeunesdatlas@gmail.com</p>
+  <p>Tél : +212672473292 / +212808633491</p>
+</section>
+
+<footer>
+  © 2026 Association Jeunes d’Atlas by ANAS
+</footer>
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
+
+<script>
+  setTimeout(() => {
+    const loader = document.getElementById("formLoader");
+    if (loader) loader.style.display = "none";
+  }, 2500); // 2.5 ثواني
+</script>
+<script>
+  const counters = document.querySelectorAll(".stat-number");
+  let statsPlayed = false;
+
+  function runCounters() {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      let count = 0;
+      const speed = target / 120;
+
+      const updateCount = () => {
+        count += speed;
+        if (count < target) {
+          counter.innerText = Math.floor(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  }
+
+  window.addEventListener("scroll", () => {
+    const statsSection = document.querySelector(".stats-section");
+    const sectionTop = statsSection.getBoundingClientRect().top;
+
+    if (sectionTop < window.innerHeight - 150 && !statsPlayed) {
+      runCounters();
+      statsPlayed = true;
+    }
+  });
+</script>
+
+<script>
+  const activityCards = document.querySelectorAll(".card");
+  const actionSections = document.querySelectorAll(".actions-section");
+
+  function resetCards() {
+    activityCards.forEach(card => {
+      card.classList.remove("active", "inactive");
+    });
+  }
+
+  function hideAllActions() {
+    actionSections.forEach(section => {
+      section.style.display = "none";
+    });
+  }
+
+  activityCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const targetId = card.getAttribute("data-target");
+
+      resetCards();
+      hideAllActions();
+
+      // active / inactive effect
+      card.classList.add("active");
+      activityCards.forEach(c => {
+        if (c !== card) c.classList.add("inactive");
+      });
+
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.style.display = "block";
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+  // reset ملي تمشي لشي section آخر
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      hideAllActions();
+      resetCards();
+    });
+  });
+</script>
+<script>
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  function setActiveLink() {
+    let currentSection = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+  setActiveLink();
+</script>
+
+<script>
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">✕</span>
+    <span class="lightbox-prev">‹</span>
+    <img class="lightbox-img">
+    <span class="lightbox-next">›</span>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector(".lightbox-img");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+  const prevBtn = lightbox.querySelector(".lightbox-prev");
+  const nextBtn = lightbox.querySelector(".lightbox-next");
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll(".popup-gallery").forEach(gallery => {
+    const imgs = gallery.querySelectorAll("img");
+
+    imgs.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentImages = imgs;
+        currentIndex = index;
+        openLightbox();
+      });
+    });
+  });
+
+  function openLightbox() {
+    lightbox.classList.add("active");
+    showImage();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+  }
+
+  function showImage() {
+    lightboxImg.classList.remove("animate");
+    void lightboxImg.offsetWidth;
+    lightboxImg.classList.add("animate");
+    lightboxImg.src = currentImages[currentIndex].src;
+  }
+
+  prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage();
+  };
+
+  nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage();
+  };
+
+  closeBtn.onclick = closeLightbox;
+
+  lightbox.onclick = e => {
+    if (e.target === lightbox) closeLightbox();
+  };
+
+  document.addEventListener("keydown", e => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") nextBtn.click();
+    if (e.key === "ArrowLeft") prevBtn.click();
+  });
+</script>
+
+<script>
+  // Init map centered on Morocco
+  const map = L.map('mapid', {
+    zoomControl: true,
+    minZoom: 5,
+    maxZoom: 10
+  }).setView([31.5, -7.5], 6);
+
+  // Clean tile (no borders, no labels)
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+    { attribution: '' }
+  ).addTo(map);
+
+  // Limit map to Morocco
+  const moroccoBounds = [
+    [21.0, -17.5],
+    [36.0, -1.0]
+  ];
+  map.setMaxBounds(moroccoBounds);
+  map.on('drag', () => {
+    map.panInsideBounds(moroccoBounds, { animate: false });
+  });
+
+  // Dot icon
+  const dotIcon = L.divIcon({
+    className: '',
+    html: '<div class="dot-marker"></div>',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5]
+  });
+
+  // ===== DOUARS DATA =====
+  const douars = [
+    { name: "Douar Aït Ouzough", lat: 30.47, lng: -8.87 },
+    { name: "Douar Aït Ouzlitt", lat: 30.49, lng: -8.90 },
+    { name: "Douar Ahrbiln", lat: 30.45, lng: -8.85 },
+    { name: "Douar Oukhliçn", lat: 30.44, lng: -8.88 },
+    { name: "Douar Anikio", lat: 30.46, lng: -8.92 },
+    { name: "Douar Akzim", lat: 30.48, lng: -8.84 }
+  ];
+
+  // Add markers
+  douars.forEach(d => {
+    L.marker([d.lat, d.lng], { icon: dotIcon })
+      .addTo(map)
+      .bindPopup(`<strong>${d.name}</strong>`);
+  });
+</script>
+
+</body>
+</html>
