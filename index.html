@@ -115,7 +115,86 @@ par un groupe de jeunes pleins d’énergie, de vitalité et d’amour du béné
   </div>
 
 </section>
+<section class="timeline-pro" id="timeline">
+  <div class="timeline-container">
 
+    <h2 class="section-title">Notre Parcours</h2>
+    <p class="section-subtitle">
+      Les moments clés de l’Association Jeunes d’Atlas
+    </p>
+
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2004</span>
+        <h3>Création de l’association</h3>
+        <p>Lancement officiel et premières actions solidaires.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2012</span>
+        <h3>Caravane Anarouz</h3>
+        <p>hena aykon description sghera</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2013</span>
+        <h3>Shabab Up</h3>
+        <p>description tane.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2014</span>
+        <h3>MAdinaty</h3>
+        <p>.................</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2015</span>
+        <h3>Darna</h3>
+        <p>.................</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2018</span>
+        <h3>Colibri</h3>
+        <p>.................</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2020</span>
+        <h3>Complexe</h3>
+        <p>.................</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2020</span>
+        <h3>MAdinaty</h3>
+        <p>.................</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ================= POPUP ENGAGEMENT ================= -->
 
@@ -798,6 +877,22 @@ Cette initiative a constitué un moment éducatif et culturel remarquable, allia
       .bindPopup(`<strong>${d.name}</strong>`);
   });
 </script>
+<script>
+const items = document.querySelectorAll(".timeline-item");
+const line = document.querySelector(".timeline-line");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+      line.style.height = document.querySelector(".timeline-container").offsetHeight - 120 + "px";
+    }
+  });
+}, { threshold: 0.3 });
+
+items.forEach(item => observer.observe(item));
+</script>
+
 
 </body>
 </html>
